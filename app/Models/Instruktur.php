@@ -16,6 +16,11 @@ class Instruktur extends Model
 
     protected $with = ['jadwal'];
 
+    public function jadwal(){
+        return $this->hasMany(Jadwal::class);
+
+    }
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
