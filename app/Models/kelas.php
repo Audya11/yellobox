@@ -13,13 +13,15 @@ class kelas extends Model
 
     protected $guarded =['id'];
 
-    protected $with = ['sekolah'];
+    protected $with = ['sekolah', 'siswa'];
 
     public function sekolah(){
         return $this->belongsTo(sekolah::class, 'sekolah_id');
 
     }
-
+public function siswa(){
+    return $this->hasMany(Siswa::class);
+}
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable,  HasSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +23,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'alamat','keahlian','notelp','email','photo',
     ];
+    protected $guarded =['id'];
+
+    protected $with = ['jadwal', 'absensi'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -42,4 +48,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+  
+    public function jadwal(){
+        return $this->hasMany(Jadwal::class);
+
+    }
+public function absensi(){
+return $this->belongsTo(User::class, 'absensi_id');
+}
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
+    }
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
 }
