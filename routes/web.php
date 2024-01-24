@@ -55,3 +55,7 @@ Route::get('/sekolah', function () {
 Route::get('/absen', function () {
     return view('admin.absen.index');
 });
+
+Route::get('/create', function () {
+    return view('admin.instruktur.create');
+});

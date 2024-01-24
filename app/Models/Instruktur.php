@@ -16,6 +16,9 @@ class Instruktur extends Model
 
     protected $with = ['jadwal'];
 
+    protected $fillable = [
+        'id','nama','alamat','keahlian','notelp','email','photo'];
+
     public function jadwal(){
         return $this->hasMany(Jadwal::class);
 

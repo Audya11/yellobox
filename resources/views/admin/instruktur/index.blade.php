@@ -128,13 +128,21 @@
             </div>
         </nav>
         <!-- End Navbar -->
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="card my-4 ">
+                <div class="card-tools">
+                    <a href="/create" class="btn btn-primary">tambah data <i class="fas fa-plus-square"></i></a>
+                </div>
+            </div>
+        </div>
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Tabel Jadwal Instruktur</h6>
+                                <h6 class="text-white text-capitalize ps-3">Tabel Instruktur</h6>
+
                             </div>
                         </div>
                         <div class="card-body px-0 pb-2">
@@ -345,7 +353,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -601,7 +609,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <footer class="footer py-4  ">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
