@@ -71,6 +71,7 @@
                             <img class="pt-4 mx-auto" src="/img/Yello.png" alt="" width="100">
                             <div class="card-body ">
                                 <form role="form" class="text-start" action="/login" method="POST">
+                                    @csrf
                                     <div class="input-group input-group-outline my-3">
                                         <label class="form-label">Email</label>
                                         <input type="email" name="email" class="form-control">
