@@ -18,14 +18,20 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', function () {
-    return view('admin.index');
+    return view('admin.index', [
+        "title"=> "admin"
+    ]);
 });
-Route::get('/tables', function () {
-    return view('admin.jadwal.tables');
+Route::get('/jadwal', function () {
+    return view('admin.jadwal.jadwal', [
+        "title"=> "jadwal"
+    ]);
 });
 
 Route::get('/billing', function () {
-    return view('admin.billing');
+    return view('admin.billing', [
+        "title"=> "billing"
+    ]);
 });
 
 Route::get('/login', function () {
@@ -45,17 +51,25 @@ Route::get('/notifikasi', function () {
 });
 
 Route::get('/instruktur', function () {
-    return view('admin.instruktur.index');
+    return view('admin.instruktur.index', [
+        "title"=> "Instruktur"
+    ]);
 });
 
 Route::get('/sekolah', function () {
-    return view('admin.sekolah.index');
+    return view('admin.sekolah.index', [
+        "title"=> "sekolah"
+    ]);
 });
 
 Route::get('/absen', function () {
-    return view('admin.absen.index');
+    return view('admin.absen.index', [
+        "title"=> "absen"
+    ]);
 });
 
 Route::get('/create', function () {
-    return view('admin.instruktur.create');
+    return view('admin.instruktur.create', [
+        "title" => "create"
+    ]);
 });
