@@ -19,6 +19,13 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->text("alamat")->nullable();
+            $table->string("keahlian")->nullable();
+            $table->string("slug")->unique();
+            $table->string("notelp")->nullable();
+            $table->string("photo")->nullable();
+            $table->foreignId("sekolah_id")->nullable();
         });
     }
 
