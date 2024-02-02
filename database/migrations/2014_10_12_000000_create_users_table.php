@@ -20,12 +20,12 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->text("alamat");
-            $table->string("keahlian");
+            $table->text("alamat")->nullable();
+            $table->string("keahlian")->nullable();
             $table->string("slug")->unique();
-            $table->string("notelp");
-            $table->string("photo");
-            $table->foreignId("sekolah_id");
+            $table->string("notelp")->nullable();
+            $table->string("photo")->nullable();
+            $table->foreignId("sekolah_id")->nullable();
         });
     }
 

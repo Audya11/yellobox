@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Logincontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,8 @@ Route::get('/billing', function () {
     return view('admin.billing');
 });
 
-Route::get('/login', function () {
-    return view('admin.login.index');
-});
+Route::get('/login', [Logincontroller::class, 'index'])->middleware('guest');
+Route::post('/login', [Logincontroller::class, 'authenticate']);
 
 Route::get('/register', function () {
     return view('admin.login.register');

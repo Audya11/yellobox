@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("nama");
             $table->text("alamat");
             $table->string("slug")->unique();
-            $table->integer("notelp");
+            $table->string("notelp");
             $table->string("PIC");
             
 
