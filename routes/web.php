@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Logincontroller;
+use App\Http\Controllers\Logincontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ Route::get('/billing', function () {
 });
 
 Route::get('/login', [Logincontroller::class, 'index'])->middleware('guest');
-Route::post('/login', [Logincontroller::class, 'authenticate']);
+Route::post('/login', [Logincontroller::class, 'postLogin']);
 
 Route::get('/register', function () {
     return view('admin.login.register');
