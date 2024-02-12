@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Logincontroller;
+use App\Http\Controllers\RegiterController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +34,10 @@ Route::get('/billing', function () {
 
 Route::get('/login', [Logincontroller::class, 'index'])->middleware('guest');
 Route::post('/login', [Logincontroller::class, 'authenticate']);
+Route::post('/logout', [Logincontroller::class, 'logout']);
 
 Route::get('/register', function () {
-    return view('admin.login.register');
+    return view('admin.register.index');
 });
 
 Route::get('/profile', function () {

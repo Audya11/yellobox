@@ -32,6 +32,6 @@ public function logout(){
 
     request()->session()->invalidate();
     request()->session()->regenerateToken();
-    return redict('/login');
+    return redirect('/login');
 }
 }
