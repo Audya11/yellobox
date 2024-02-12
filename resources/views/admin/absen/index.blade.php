@@ -134,7 +134,7 @@
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div
-                                class="bg-warning shadow-primary border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center px-4">
+                                class="collor-button border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center px-4">
                                 <img class="mt-1" src="/img/Yello.png" alt="" width="70">
                                 <h6 class="text-white text-capitalize ps-3 text-center ">SD TRIDAYA</h6>
                                 <img class="mt-1" src="/img/sd-tridaya.png" alt="" width="70">

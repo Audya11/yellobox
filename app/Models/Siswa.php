@@ -15,7 +15,7 @@ class Siswa extends Model
     protected $guarded =['id'];
     protected $with =['kelas'];
     public function kelas(){
-        return $this->belongsTo(sekolah::class, 'kelas_id'); 
+        return $this->belongsTo(kelas::class, 'kelas_id'); 
     }
     public function getSlugOptions() : SlugOptions
     {

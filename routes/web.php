@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Logincontroller;
-use App\Http\Controllers\RegiterController;
-
+use App\Http\Controllers\InstrukturController;
 
 
 /*
@@ -22,14 +21,20 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', function () {
-    return view('admin.index');
+    return view('admin.index', [
+        "title"=> "admin"
+    ]);
 });
-Route::get('/tables', function () {
-    return view('admin.jadwal.tables');
+Route::get('/jadwal', function () {
+    return view('admin.jadwal.jadwal', [
+        "title"=> "jadwal"
+    ]);
 });
 
 Route::get('/billing', function () {
-    return view('admin.billing');
+    return view('admin.billing', [
+        "title"=> "billing"
+    ]);
 });
 
 Route::get('/login', [Logincontroller::class, 'index'])->middleware('guest');
@@ -48,18 +53,18 @@ Route::get('/notifikasi', function () {
     return view('admin.notifikasi');
 });
 
-Route::get('/instruktur', function () {
-    return view('admin.instruktur.index');
-});
+Route::get('/instruktur', [InstrukturController::class,'index']);
 
 Route::get('/sekolah', function () {
-    return view('admin.sekolah.index');
+    return view('admin.sekolah.index', [
+        "title"=> "sekolah"
+    ]);
 });
 
 Route::get('/absen', function () {
-    return view('admin.absen.index');
+    return view('admin.absen.index', [
+        "title"=> "absen"
+    ]);
 });
 
-Route::get('/create', function () {
-    return view('admin.instruktur.create');
-});
+Route::get('/instruktur/create', [InstrukturController::class,'create']);

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string("notelp")->nullable();
             $table->string("photo")->nullable();
             $table->foreignId("sekolah_id")->nullable();
+            $table->foreignId("perminggu_id");
         });
     }
 

@@ -13,12 +13,12 @@ class Jadwal extends Model
 
     protected $guarded =['id'];
 
-    protected $with = ['instruktur, sekolah'];
+    protected $with = [ 'sekolah', 'perminggu'];
 
 
-    public function instruktur(){
-        return $this->belongsTo(Instruktur::class, 'instruktur_id');
 
+    public function perminggu(){
+        return $this->hasMany(perminggu::class);
     }
 
     public function getSlugOptions() : SlugOptions
@@ -33,7 +33,7 @@ class Jadwal extends Model
     }
 
     public function sekolah(){
-        return $this->belongsTo(sekolah::class, 'sekolah_id');
+        return $this->hasMany(sekolah::class);
 
     }
 
