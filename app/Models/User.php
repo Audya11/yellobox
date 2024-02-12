@@ -53,9 +53,9 @@ class User extends Authenticatable
         return $this->hasMany(Jadwal::class);
 
     }
-public function absensi(){
-return $this->belongsTo(User::class, 'absensi_id');
-}
+    public function absensi(){
+    return $this->belongsTo(Absensi::class, 'absensi_id');
+    }
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

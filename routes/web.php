@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Logincontroller;
+use App\Http\Controllers\InstrukturController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,11 +52,7 @@ Route::get('/notifikasi', function () {
     return view('admin.notifikasi');
 });
 
-Route::get('/instruktur', function () {
-    return view('admin.instruktur.index', [
-        "title"=> "Instruktur"
-    ]);
-});
+Route::get('/instruktur', [InstrukturController::class,'index']);
 
 Route::get('/sekolah', function () {
     return view('admin.sekolah.index', [
@@ -68,8 +66,4 @@ Route::get('/absen', function () {
     ]);
 });
 
-Route::get('/create', function () {
-    return view('admin.instruktur.create', [
-        "title" => "create"
-    ]);
-});
+Route::get('/instruktur/create', [InstrukturController::class,'create']);

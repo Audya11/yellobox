@@ -24,11 +24,12 @@
         <link rel="stylesheet" href="/css/material-dashboard.min.css">
         <link rel="stylesheet" href="/css/nucleo-icons.css">
         <link rel="stylesheet" href="/css/nucleo-svg.css">
+        <link rel="stylesheet" href="/css/color.css">
     </head>
 
     <body class="antialiased">
 
-        <div class="g-sidenav-show  bg-gray-200">
+        <div class="g-sidenav-show" style="background-color: #BBE2EC">
             @include('admin.layout.sidebar')
 
             @yield('content')

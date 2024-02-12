@@ -133,45 +133,49 @@
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                            <div class="collor-button shadow-primary border-radius-lg pt-4 pb-3">
                                 <h6 class="text-white text-capitalize ps-3">Tambah data Instruktur</h6>
                             </div>
                         </div>
                         <div class="card my-4">
                             <div class ='container'>
-
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Nama</label>
-                                    <input type="text" name='Kode_obat' class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Alamat </label>
-                                    <input type="text" name='Nama_Obat' class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Keahlian</label>
-                                    <input type="text" name='Supplier' class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">No.Telp</label>
-                                    <input type="text" name='Supplier' class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Email</label>
-                                    <input type="text" name='Supplier' class="form-control" id="exampleInputEmail1"
-                                        aria-describedby="emailHelp">
-                                </div>
-                                <input class="btn btn-primary" type ="submit" name="submit" value="save">
+                                <form action="" class="w-75">
+                                    @csrf
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Nama</label>
+                                        <input type="text" name='name'id='name'
+                                            class="form-control border-top-0 shadow border-1">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="alamat" class="form-label">Alamat </label>
+                                        <textarea name='alamat' id="alamat" class="form-control border-top-0 shadow border-1">
+                                        </textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="keahlian" class="form-label">Keahlian</label>
+                                        <input type="text" name='keahlian'
+                                            class="form-control border-top-0 shadow border-1">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="notelp" class="form-label">No.Telp</label>
+                                        <input type="text" name='notelp'
+                                            class="form-control border-top-0 shadow border-1">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" name='email'
+                                            class="form-control border-top-0 shadow border-1">
+                                    </div>
+                                    <div class="mb-3 ">
+                                        <label for="photo" class="form-label">Photo</label>
+                                        <input type="file" name='photo'
+                                            class="form-control border-top-0 shadow border-1">
+                                    </div>
+                                    <button class="btn collor-button text-white shadow" type ="submit"
+                                        name="submit">Save</button>
                                 </form>
                             </div>
                         </div>
-
-
 
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
