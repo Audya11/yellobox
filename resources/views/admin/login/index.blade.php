@@ -27,7 +27,7 @@
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <img class="pt-4 mx-auto" src="/img/Yello.png" alt="" width="100">
                             <div class="card-body ">
-                                <form role="form" class="text-start" action="/login" method="POST">
+                                <form class="text-start" action="/login" method="POST">
                                     @csrf
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="form-label"></label>
