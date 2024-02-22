@@ -175,7 +175,7 @@
                                                 <td>
                                                     <div class="d-flex px-2 py-1">
                                                         <div>
-                                                            <img src="{{ $user->photo }}"
+                                                            <img src="{{ asset('storage/' . $user->photo) }}"
                                                                 class="avatar avatar-sm me-3 border-radius-lg"
                                                                 alt="user1">
                                                         </div>
@@ -191,8 +191,17 @@
                                                 <td class="align-middle text-center">
                                                     <p class="text-xs text-secondary mb-0">{{ $user->email }}</p>
                                                 </td>
-                                                <td class="align-middle">
-
+                                                <td class="align-middle text-center">
+                                                    <a href="/instruktur/{{ $user->slug }}/edit"
+                                                        class="text-secondary font-weight-bold text-xs"
+                                                        data-toggle="tooltip" data-original-title="Edit user">
+                                                        <i class="bi bi-pencil-square"></i>
+                                                    </a>
+                                                    <form action="/instruktur/{{ $user->slug }}" method="POST">
+                                                        @method('delete')
+                                                        @csrf
+                                                    <button class="border-0 bg-transparent" onclick="return confirm('Are you sure?')"> <i class="bi bi-trash3" ></i></button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach

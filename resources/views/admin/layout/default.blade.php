@@ -22,8 +22,7 @@
 
 
         <link rel="stylesheet" href="/css/material-dashboard.min.css">
-        <link rel="stylesheet" href="/css/nucleo-icons.css">
-        <link rel="stylesheet" href="/css/nucleo-svg.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="/css/color.css">
     </head>
 

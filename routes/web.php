@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Logincontroller;
 use App\Http\Controllers\InstrukturController;
+use App\Http\Controllers\SekolahController;
 
 
 /*
@@ -54,11 +55,7 @@ Route::get('/notifikasi', function () {
 
 Route::get('/instruktur', [InstrukturController::class,'index']);
 
-Route::get('/sekolah', function () {
-    return view('admin.sekolah.index', [
-        "title"=> "sekolah"
-    ]);
-});
+Route::get('/sekolah', [SekolahController::class,'index']);
 
 Route::get('/absen', function () {
     return view('admin.absen.index', [
@@ -67,3 +64,9 @@ Route::get('/absen', function () {
 });
 
 Route::get('/instruktur/create', [InstrukturController::class,'create']);
+Route::post('/instruktur', [InstrukturController::class,'store']);
+Route::get('/instruktur/{slug}/edit', [InstrukturController::class,'edit']);
+Route::put('/instruktur/{slug}', [InstrukturController::class,'update']);
+Route::delete('/instruktur/{slug}', [InstrukturController::class,'destroy']);
+Route::get('/sekolah/create', [SekolahController::class,'create']);
+Route::post('/sekolah', [SekolahController::class,'store']);

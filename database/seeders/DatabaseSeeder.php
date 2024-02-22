@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\perminggu;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +19,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'email' => 'otong@gmail.com',
             'password' => 'qwerty',
+            'perminggu_id' => 1
             
         ]);
     }
