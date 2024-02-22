@@ -37,7 +37,8 @@
 
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="form-label"></label>
-                                        <input type="password" name="password" class="form-control" placeholder="password">
+                                        <input type="password" name="password" class="form-control" placeholder="password"
+                                            autofocus>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign
