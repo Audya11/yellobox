@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'sekolah' ? 'active collor-button' : '' }} " href="/sekolah">
+                <a class="nav-link {{ $title === 'Sekolah' ? 'active collor-button' : '' }} " href="/sekolah">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">table_view</i>
                     </div>

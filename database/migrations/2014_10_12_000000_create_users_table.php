@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string("notelp")->nullable();
             $table->string("photo")->nullable();
             $table->foreignId("sekolah_id")->nullable();
-            $table->foreignId("perminggu_id");
+            $table->foreignId("perminggu_id")->nullable();
         });
     }
 

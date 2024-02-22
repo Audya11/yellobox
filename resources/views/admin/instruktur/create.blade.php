@@ -139,37 +139,37 @@
                         </div>
                         <div class="card my-4">
                             <div class ='container'>
-                                <form action="" class="w-75">
+                                <form action="/instruktur" method="POST" enctype="multipart/form-data" class="w-75">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Nama</label>
                                         <input type="text" name='name'id='name'
-                                            class="form-control border-top-0 shadow border-1">
+                                            class="form-control border-top-0 shadow border-1"required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="alamat" class="form-label">Alamat </label>
-                                        <textarea name='alamat' id="alamat" class="form-control border-top-0 shadow border-1">
+                                        <textarea name='alamat' id="alamat" class="form-control border-top-0 shadow border-1"required>
                                         </textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="keahlian" class="form-label">Keahlian</label>
                                         <input type="text" name='keahlian'
-                                            class="form-control border-top-0 shadow border-1">
+                                            class="form-control border-top-0 shadow border-1"required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="notelp" class="form-label">No.Telp</label>
                                         <input type="text" name='notelp'
-                                            class="form-control border-top-0 shadow border-1">
+                                            class="form-control border-top-0 shadow border-1"required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
                                         <input type="email" name='email'
-                                            class="form-control border-top-0 shadow border-1">
+                                            class="form-control border-top-0 shadow border-1"required>
                                     </div>
                                     <div class="mb-3 ">
                                         <label for="photo" class="form-label">Photo</label>
                                         <input type="file" name='photo'
-                                            class="form-control border-top-0 shadow border-1">
+                                            class="form-control border-top-0 shadow border-1"required>
                                     </div>
                                     <button class="btn collor-button text-white shadow" type ="submit"
                                         name="submit">Save</button>
