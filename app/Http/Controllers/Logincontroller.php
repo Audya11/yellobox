@@ -27,7 +27,7 @@ public function authenticate (Request $request){
         return redirect()->intended('admin');
     }
 
-    return back()->with('loginError', "Email or password is wrong!");
+    return back()->with('loginError', 'Login failed!');
 }
 
 public function logout(){
