@@ -5,7 +5,7 @@ use App\Http\Controllers\Logincontroller;
 use App\Http\Controllers\InstrukturController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\SekolahController;
-
+use App\Http\Controllers\AbsensiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,11 +56,11 @@ Route::get('/instruktur', [InstrukturController::class,'index']);
 Route::get('/sekolah', [SekolahController::class,'index']);
 Route::get('/jadwal', [JadwalController::class, 'index']);
 
-Route::get('/absen', function () {
-    return view('admin.absen.index', [
-        "title"=> "absen"
-    ]);
-});
+Route::get('/absen', [AbsensiController::class,'index']
+);
+
+Route::get('/absensi/create', [AbsensiController::class,'create']);
+Route::post('/absensi', [AbsensiController::class,'store']);
 
 Route::get('/instruktur/create', [InstrukturController::class,'create']);
 Route::post('/instruktur', [InstrukturController::class,'store']);

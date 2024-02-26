@@ -24,6 +24,13 @@
             <div class="container my-auto">
                 <div class="row">
                     <div class="col-lg-4 col-md-8 col-12 mx-auto">
+                        @if (session()->has('loginError'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ session('loginError') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                    aria-label="Close"></button>
+                            </div>
+                        @endif
                         <div class="card z-index-0 fadeIn3 fadeInBottom">
                             <img class="pt-4 mx-auto" src="/img/Yello.png" alt="" width="100">
                             <div class="card-body ">
@@ -37,7 +44,8 @@
 
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="form-label"></label>
-                                        <input type="password" name="password" class="form-control" placeholder="password">
+                                        <input type="password" name="password" class="form-control" placeholder="password"
+                                            autofocus>
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign

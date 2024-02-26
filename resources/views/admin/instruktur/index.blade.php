@@ -161,6 +161,9 @@
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                                 Alamat</th>
                                             <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Alamat</th>
+                                            <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Keahlian</th>
                                             <th
@@ -185,11 +188,8 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="text-xs text-secondary mb-0">{{ $user->name }}</p>
-                                                </td>
-                                                <td>
 
-                                                    <p class="text-xs text-secondary mb-0">{{ $user->alamat }}</p>
+                                                    <p class="text-xs text-secondary mb-0">{{ $user->name }}</p>
                                                 </td>
                                                 <td class="text-xs text-secondary mb-0 text-center">
                                                     <p class="text-xs text-secondary mb-0">{{ $user->keahlian }}</p>
@@ -206,7 +206,9 @@
                                                     <form action="/instruktur/{{ $user->slug }}" method="POST">
                                                         @method('delete')
                                                         @csrf
-                                                    <button class="border-0 bg-transparent" onclick="return confirm('Are you sure?')"> <i class="bi bi-trash3" ></i></button>
+                                                        <button class="border-0 bg-transparent"
+                                                            onclick="return confirm('Are you sure?')"> <i
+                                                                class="bi bi-trash3"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
