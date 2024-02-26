@@ -158,6 +158,9 @@
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                                 Nama</th>
                                             <th
+                                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Alamat</th>
+                                            <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Keahlian</th>
                                             <th
@@ -182,8 +185,11 @@
                                                     </div>
                                                 </td>
                                                 <td>
-
                                                     <p class="text-xs text-secondary mb-0">{{ $user->name }}</p>
+                                                </td>
+                                                <td>
+
+                                                    <p class="text-xs text-secondary mb-0">{{ $user->alamat }}</p>
                                                 </td>
                                                 <td class="text-xs text-secondary mb-0 text-center">
                                                     <p class="text-xs text-secondary mb-0">{{ $user->keahlian }}</p>
@@ -191,7 +197,7 @@
                                                 <td class="align-middle text-center">
                                                     <p class="text-xs text-secondary mb-0">{{ $user->email }}</p>
                                                 </td>
-                                                <td class="align-middle text-center">
+                                                <td class="align-middle justify-content-center align-items-center d-flex">
                                                     <a href="/instruktur/{{ $user->slug }}/edit"
                                                         class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">

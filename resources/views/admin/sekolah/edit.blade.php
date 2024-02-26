@@ -8,7 +8,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Sekolah</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tables</li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Tables</h6>
                 </nav>
@@ -128,122 +128,90 @@
             </div>
         </nav>
         <!-- End Navbar -->
-        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 rounded-circle">
-            <div class="card my-4 ">
-                <div class="card-tools">
-                    <a href="/sekolah/create" class="btn collor-button " style="color: white">tambah data <i
-                            class="fas fa-plus-square"></i></a>
-                </div>
-            </div>
-        </div>
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="collor-button shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3"> Jadwal Sekolah</h6>
+                                <h6 class="text-white text-capitalize ps-3">Tambah data Instruktur</h6>
                             </div>
                         </div>
+                        <div class="card my-4">
+                            <div class ='container'>
+                                <form action="/sekolah/{{ $sekolah->slug }}" method="POST" class="w-75">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Nama</label>
+                                        <input type="text" name='nama'id='name' value="{{ $sekolah->nama }}"
+                                            class="form-control border-top-0 shadow border-1"required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="alamat" class="form-label">Alamat </label>
+                                        <textarea name='alamat' id="alamat" class="form-control border-top-0 shadow border-1"required>
+                                            {{ $sekolah->alamat }}
+                                        </textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="notelp" class="form-label">No.Telp</label>
+                                        <input type="text" name='notelp'
+                                            class="form-control border-top-0 shadow border-1"required value="{{ $sekolah->notelp }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="pic" class="form-label">PICC</label>
+                                        <input type="text" name='pic' value="{{ $sekolah->pic }}"
+                                            class="form-control border-top-0 shadow border-1"required>
+                                    </div>
+                                    <button class="btn collor-button text-white shadow" type ="submit"
+                                        name="submit">Update</button>
+                                </form>
+                            </div>
+                        </div>
+
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th
-                                                class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">
-                                                Nama</th>
-                                            <th
-                                                class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Alamat</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                No.Telp</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                PIC</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Action</th>
-                                            
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach($sekolahs as $sekolah)
-                                        <tr>
-                                            <td>
-                                               <p class="text-secondary text-xs text-center font-weight-bold">{{ $sekolah->nama }}</p>
-                                            </td>
-                                            <td class="align-middle  text-sm">
-                                                <p class="text-secondary text-xs  text-center font-weight-bold">{{ $sekolah->alamat }}</p>
-                                            </td>
-                                            <td class="align-middle ">
-                                                <p class="text-secondary text-xs  text-center font-weight-bold">{{ $sekolah->notelp }}</p>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <p class="text-secondary text-xs font-weight-bold">{{ $sekolah->pic }}</p>
-                                            </td>
-                                            <td class="align-middle text-center justify-content-center align-items-center d-flex">
-                                                <a href="/sekolah/{{ $sekolah->slug }}/edit"
-                                                    class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    <i class="bi bi-pencil-square"></i>
-                                                </a>
-                                                <form action="/sekolah/{{ $sekolah->slug }}" method="POST">
-                                                    @method('delete')
-                                                    @csrf
-                                                <button class="border-0 bg-transparent" onclick="return confirm('Are you sure?')"> <i class="bi bi-trash3" ></i></button>
-                                                </form>
-                                        </tr>  
-                                        @endforeach
-                                       
-                                    </tbody>
-                                </table>
+                                <footer class="footer py-4  ">
+                                    <div class="container-fluid">
+                                        <div class="row align-items-center justify-content-lg-between">
+                                            <div class="col-lg-6 mb-lg-0 mb-4">
+                                                <div class="copyright text-center text-sm text-muted text-lg-start">
+                                                    ©
+                                                    <script>
+                                                        document.write(new Date().getFullYear())
+                                                    </script>,
+                                                    made with <i class="fa fa-heart"></i> by
+                                                    <a href="https://www.creative-tim.com" class="font-weight-bold"
+                                                        target="_blank">Creative
+                                                        Tim</a>
+                                                    for a better web.
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                                                    <li class="nav-item">
+                                                        <a href="https://www.creative-tim.com" class="nav-link text-muted"
+                                                            target="_blank">Creative
+                                                            Tim</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="https://www.creative-tim.com/presentation"
+                                                            class="nav-link text-muted" target="_blank">About Us</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="https://www.creative-tim.com/blog"
+                                                            class="nav-link text-muted" target="_blank">Blog</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="https://www.creative-tim.com/license"
+                                                            class="nav-link pe-0 text-muted" target="_blank">License</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </footer>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <footer class="footer py-4  ">
-                <div class="container-fluid">
-                    <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-lg-6 mb-lg-0 mb-4">
-                            <div class="copyright text-center text-sm text-muted text-lg-start">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear())
-                                </script>,
-                                made with <i class="fa fa-heart"></i> by
-                                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Creative
-                                    Tim</a>
-                                for a better web.
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com" class="nav-link text-muted"
-                                        target="_blank">Creative Tim</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted"
-                                        target="_blank">About Us</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/blog" class="nav-link text-muted"
-                                        target="_blank">Blog</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted"
-                                        target="_blank">License</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        </div>
     </main>
     <div class="fixed-plugin">
         <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">

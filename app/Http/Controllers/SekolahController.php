@@ -34,4 +34,42 @@ class SekolahController extends Controller
         Sekolah::create($validateData);
         return redirect('/sekolah')->with('success', 'Sekolah Berhasil Di tambahkan');
     }
+
+
+    public function edit ($slug){
+       // Find the sekolah by slug
+    $sekolah = Sekolah::where('slug', $slug)->first();
+
+    // Return the view for editing the sekolah
+    return view('admin.sekolah.edit', [
+        "title" => "edit",
+        "sekolah" => $sekolah
+    ]);
+
+    }
+
+    public function update (Request $request, $slug){
+        // Find the school based on the provided slug
+    $sekolah = Sekolah::where('slug', $slug)->first();
+
+    // Update the school with the data from the request
+    $sekolah->update($request->all());
+
+    // Save the updated school
+    $sekolah->save();
+
+    // Redirect to the school page with a success message
+    return redirect('/sekolah')->with('success', 'Sekolah Berhasil Di edit');
+    }
+
+    public function destroy ($slug){
+       // Find the school by its unique slug
+    $sekolah = Sekolah::where('slug', $slug)->first();
+
+    // Delete the school
+    $sekolah->delete();
+
+    // Redirect to the school index page with a success message
+    return redirect('/sekolah')->with('success', 'Sekolah Berhasil Di hapus');
+    }
 }

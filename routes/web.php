@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Logincontroller;
 use App\Http\Controllers\InstrukturController;
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\SekolahController;
 
 
@@ -17,20 +18,17 @@ use App\Http\Controllers\SekolahController;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/admin', function () {
     return view('admin.index', [
         "title"=> "admin"
     ]);
 })->middleware('auth');
-Route::get('/jadwal', function () {
-    return view('admin.jadwal.jadwal', [
-        "title"=> "jadwal"
-    ]);
-});
+
+
 
 Route::get('/billing', function () {
     return view('admin.billing', [
@@ -55,8 +53,8 @@ Route::get('/notifikasi', function () {
 });
 
 Route::get('/instruktur', [InstrukturController::class,'index']);
-
 Route::get('/sekolah', [SekolahController::class,'index']);
+Route::get('/jadwal', [JadwalController::class, 'index']);
 
 Route::get('/absen', function () {
     return view('admin.absen.index', [
@@ -71,3 +69,6 @@ Route::put('/instruktur/{slug}', [InstrukturController::class,'update']);
 Route::delete('/instruktur/{slug}', [InstrukturController::class,'destroy']);
 Route::get('/sekolah/create', [SekolahController::class,'create']);
 Route::post('/sekolah', [SekolahController::class,'store']);
+Route::get('/sekolah/{slug}/edit', [SekolahController::class,'edit']);
+Route::put('/sekolah/{slug}', [SekolahController::class,'update']);
+Route::delete('/sekolah/{slug}', [SekolahController::class,'destroy']);
