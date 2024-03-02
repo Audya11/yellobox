@@ -13,12 +13,12 @@ class Jadwal extends Model
 
     protected $guarded =['id'];
 
-    protected $with = [ 'sekolah', 'perminggu'];
+    protected $with = [ 'sekolah', 'perminggu', 'instruktur'];
 
 
 
     public function perminggu(){
-        return $this->hasMany(perminggu::class);
+        return $this->hasMany(perminggu::class, 'id');
     }
 
     public function getSlugOptions() : SlugOptions
@@ -32,10 +32,14 @@ class Jadwal extends Model
         return 'slug';
     }
 
-    public function sekolah(){
-        return $this->hasMany(sekolah::class);
-
+    public function instruktur(){
+        return $this->hasMany(User::class, 'user_id', 'id');
     }
+
+    public function sekolah(){
+        return $this->belongsTo(sekolah::class, 'sekolah_id', 'id');
+    }
+    
 
 }
 

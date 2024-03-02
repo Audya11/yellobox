@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId("user_id");
-            $table->foreignId("sekolah_id");
+          
             $table->string("slug")->unique();
-            $table->time("jammengajar");
-            $table->time("matapelajaran");
+            $table->string("jammengajar");
+            $table->string("matapelajaran");
             $table->date("tanggal");
             $table->string("asisten");
         });

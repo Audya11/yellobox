@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('sekolahs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId("jadwal_id")->nullable();
             $table->timestamps();
             $table->string("nama");
             $table->text("alamat");

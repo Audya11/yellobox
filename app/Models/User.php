@@ -49,9 +49,9 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
   
-    public function jadwal(){
-        return $this->hasMany(Jadwal::class);
 
+    public function jadwal(){
+        return $this->belongsTo(Jadwal::class, 'jadwal_id');
     }
     public function absensi(){
     return $this->belongsTo(Absensi::class, 'absensi_id');

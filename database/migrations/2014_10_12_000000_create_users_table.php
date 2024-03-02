@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string("photo")->nullable();
             $table->foreignId("sekolah_id")->nullable();
             $table->foreignId("perminggu_id")->nullable();
+            $table->foreignId("jadwal_id")->nullable();
         });
     }
 

@@ -7,7 +7,7 @@
             <div class="container-fluid py-1 px-3">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+                        <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">{{ $title }}</a></li>
                         <li class="breadcrumb-item text-sm text-dark active"></li>
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Tables</h6>
@@ -131,7 +131,7 @@
         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 rounded-circle">
             <div class="card my-4 ">
                 <div class="card-tools">
-                    <a href="#" class="btn collor-button" style="color: white">tambah data <i
+                    <a href="/jadwal/create" class="btn collor-button" style="color: white">tambah data <i
                             class="fas fa-plus-square"></i></a>
                 </div>
             </div>
@@ -155,47 +155,22 @@
                                                 Nama Instruktur</th>
                                             <th
                                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                Keahlian</th>
+                                                Mata Pelajaran</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Tempat Mengajar</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Jam Mengajar</th>
-                                            <th class="text-secondary opacity-7"></th>
+                                            <th class="text-secondary opacity-7">
+                                                Tanggal
+                                            </th>
+                                            <th class="text-secondary opacity-7">
+                                                asisten
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div>
-                                                        <img src="../assets/img/team-4.jpg"
-                                                            class="avatar avatar-sm me-3 border-radius-lg" alt="user6">
-                                                    </div>
-                                                    <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">Miriam Eric</h6>
-                                                        <p class="text-xs text-secondary mb-0">miriam@creative-tim.com</p>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0">Programator</p>
-                                                <p class="text-xs text-secondary mb-0">Developer</p>
-                                            </td>
-                                            <td class="align-middle text-center text-sm">
-                                                <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                    data-toggle="tooltip" data-original-title="Edit user">
-                                                    Edit
-                                                </a>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -203,13 +178,47 @@
                     </div>
                 </div>
             </div>
+            
+                @foreach($jadwals as $jadwal)
+
+                <tr>
+                    <td>
+                        <p class="text-xs text-secondary mb-0">{{ $jadwal->instruktur->name }}</p>
+                    </td>
+                    <td>
+                        <p class="text-xs text-secondary mb-0">{{ $jadwal->keahlian }}</p>
+                    </td>
+                    <td>
+                        <p class="text-xs text-secondary mb-0">{{ $jadwal->sekolah->nama }}</p>
+                    </td>
+                    
+                    <td class="align-middle text-center">
+                        <p class="text-xs text-secondary mb-0">Email</p>
+                    </td>
+                    <td class="align-middle justify-content-center align-items-center d-flex">
+                        <a href="/instruktur/{{ $jadwal->slug }}/edit"
+                            class="text-secondary font-weight-bold text-xs"
+                            data-toggle="tooltip" data-original-title="Edit user">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <form action="/instruktur/{{ $jadwal->slug }}" method="POST">
+                            @method('delete')
+                            @csrf
+                            <button class="border-0 bg-transparent"
+                                onclick="return confirm('Are you sure?')"> <i
+                                    class="bi bi-trash3"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+        
 
             <footer class="footer py-4  ">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
                         <div class="col-lg-6 mb-lg-0 mb-4">
                             <div class="copyright text-center text-sm text-muted text-lg-start">
-                                ©
+                                
                                 <script>
                                     document.write(new Date().getFullYear())
                                 </script>,

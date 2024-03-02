@@ -20,7 +20,10 @@ use App\Http\Controllers\AbsensiController;
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.index',[
+        "title"=> "home"
+    ]);
+
 });
 Route::get('/admin', function () {
     return view('admin.index', [
@@ -72,3 +75,7 @@ Route::post('/sekolah', [SekolahController::class,'store']);
 Route::get('/sekolah/{slug}/edit', [SekolahController::class,'edit']);
 Route::put('/sekolah/{slug}', [SekolahController::class,'update']);
 Route::delete('/sekolah/{slug}', [SekolahController::class,'destroy']);
+Route::get('/jadwal/create', [JadwalController::class,'create']);
+Route::post('/jadwal', [JadwalController::class,'store']);
+
+

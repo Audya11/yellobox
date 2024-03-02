@@ -23,7 +23,7 @@ class sekolah extends Model
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom('nama')
             ->saveSlugsTo('slug');
     }
 
