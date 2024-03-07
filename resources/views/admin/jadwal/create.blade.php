@@ -174,9 +174,12 @@
                                             class="form-control border-top-0 shadow border-1"required>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="asisten" class="form-label">Asisten</label>
-                                        <input type="type" name='asisten'
-                                            class="form-control border-top-0 shadow border-1"required>
+                                        <select name="asisten_id" id="">
+                                            <option value="" selected disabled>Pilih Nama asisten</option>
+                                            @foreach ($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                @endforeach
+                                        </select>
                                     </div>
                                     <button class="btn collor-button text-white shadow" type ="submit"
                                         name="submit">Save</button>

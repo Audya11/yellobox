@@ -168,9 +168,61 @@
                                             <th class="text-secondary opacity-7">
                                                 asisten
                                             </th>
+                                            <th class="text-secondary opacity-7">
+                                                Action
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($jadwals as $jadwal)
+
+                                        <tr>
+                                            <td>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    @foreach($jadwal->user as $user)
+                                                        {{ $user->name }}
+                                                    @endforeach
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs text-secondary mb-0">{{ $jadwal->matapelajaran }}</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    @foreach($jadwal->sekolah as $sekolah)
+                                                    {{ $sekolah->nama }}
+                                                @endforeach
+                                                </p>
+                                            </td>
+                                            
+                                            <td>
+                                                <p class="text-xs text-secondary mb-0">{{ $jadwal->jammengajar }}</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs text-secondary mb-0">{{ $jadwal->tanggal}}</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs text-secondary mb-0">
+                                                    @foreach($jadwal->asisten as $asisten)
+                                                    {{ $asisten->name }}
+                                                @endforeach</p>
+                                            </td>
+                                            <td class="align-middle justify-content-center align-items-center d-flex">
+                                                <a href="/instruktur/{{ $jadwal->slug }}/edit"
+                                                    class="text-secondary font-weight-bold text-xs"
+                                                    data-toggle="tooltip" data-original-title="Edit user">
+                                                    <i class="bi bi-pencil-square"></i>
+                                                </a>
+                                                <form action="/instruktur/{{ $jadwal->slug }}" method="POST">
+                                                    @method('delete')
+                                                    @csrf
+                                                    <button class="border-0 bg-transparent"
+                                                        onclick="return confirm('Are you sure?')"> <i
+                                                            class="bi bi-trash3"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -179,38 +231,7 @@
                 </div>
             </div>
             
-                @foreach($jadwals as $jadwal)
-
-                <tr>
-                    <td>
-                        <p class="text-xs text-secondary mb-0">{{ $jadwal->instruktur->name }}</p>
-                    </td>
-                    <td>
-                        <p class="text-xs text-secondary mb-0">{{ $jadwal->keahlian }}</p>
-                    </td>
-                    <td>
-                        <p class="text-xs text-secondary mb-0">{{ $jadwal->sekolah->nama }}</p>
-                    </td>
-                    
-                    <td class="align-middle text-center">
-                        <p class="text-xs text-secondary mb-0">Email</p>
-                    </td>
-                    <td class="align-middle justify-content-center align-items-center d-flex">
-                        <a href="/instruktur/{{ $jadwal->slug }}/edit"
-                            class="text-secondary font-weight-bold text-xs"
-                            data-toggle="tooltip" data-original-title="Edit user">
-                            <i class="bi bi-pencil-square"></i>
-                        </a>
-                        <form action="/instruktur/{{ $jadwal->slug }}" method="POST">
-                            @method('delete')
-                            @csrf
-                            <button class="border-0 bg-transparent"
-                                onclick="return confirm('Are you sure?')"> <i
-                                    class="bi bi-trash3"></i></button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
+              
         
 
             <footer class="footer py-4  ">

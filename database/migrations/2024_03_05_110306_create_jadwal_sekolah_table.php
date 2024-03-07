@@ -11,21 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jadwals', function (Blueprint $table) {
+        Schema::create('jadwal_sekolah', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('jadwal_id')->constrained();
+            $table->foreignId('sekolah_id')->constrained();
             $table->timestamps();
-            $table->string("slug")->unique();
-            $table->string("jammengajar");
-            $table->string("matapelajaran");
-            $table->date("tanggal");
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
     public function down(): void
     {
-        Schema::dropIfExists('jadwals');
+        Schema::dropIfExists('jadwal_sekolah');
     }
 };

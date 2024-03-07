@@ -13,11 +13,11 @@ class sekolah extends Model
 
 
     protected $guarded =['id'];
-    protected $with =['jadwal'];
+    // protected $with =['jadwal'];
 
 
     public function jadwal (){
-        return $this->belongsTo(Jadwal::class, 'jadwal_id');
+        return $this->belongsToMany(Jadwal::class, 'jadwal_sekolah');
     }
 
     public function getSlugOptions() : SlugOptions
