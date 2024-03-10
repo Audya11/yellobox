@@ -138,15 +138,16 @@
                             </div>
                         </div>
                         <div class="card my-4">
-                            <div class ='container'>
+                            <div class ='container '>
                                 <form action="/jadwal" method="POST" enctype="multipart/form-data" class="w-75">
                                     @csrf
                                     <div class="mb-3">
                                         <select name="user_id" id="">
-                                            <option value="" selected disabled>Pilih Nama instruktur</option>
+                                            <option value="" selected disabled>Pilih Nama
+                                                instruktur</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                                @endforeach
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="mb-3">
@@ -162,9 +163,8 @@
                                     <div class="mb-3">
                                         <select name="sekolah_id" id="">
                                             <option value="" selected disabled>Pilih Sekolah</option>
-                                            @foreach($sekolahs as $sekolah)
-                                            <option value="{{ $sekolah->id }}">{{ $sekolah->nama }}</option>
-                                                
+                                            @foreach ($sekolahs as $sekolah)
+                                                <option value="{{ $sekolah->id }}">{{ $sekolah->nama }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -178,7 +178,7 @@
                                             <option value="" selected disabled>Pilih Nama asisten</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                                @endforeach
+                                            @endforeach
                                         </select>
                                     </div>
                                     <button class="btn collor-button text-white shadow" type ="submit"

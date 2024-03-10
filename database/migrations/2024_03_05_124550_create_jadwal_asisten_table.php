@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('jadwal_asisten', function (Blueprint $table) {
             $table->id();
             $table->foreignId('jadwal_id')->constrained();
-            $table->foreignId('asisten_id')->constrained()->on('users');
+            $table->foreignId('user_id')->constrained()->on('users');
             $table->timestamps();
         });
     }

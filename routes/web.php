@@ -1,11 +1,13 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Logincontroller;
-use App\Http\Controllers\InstrukturController;
 use App\Http\Controllers\JadwalController;
-use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\SekolahController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InstrukturController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +21,10 @@ use App\Http\Controllers\AbsensiController;
 */
 
 
-Route::get('/', function () {
-    return view('admin.index',[
-        "title"=> "home"
-    ]);
+// Route::get('/',[DashboardController::class, 'index']);
 
-});
-Route::get('/admin', function () {
-    return view('admin.index', [
-        "title"=> "admin"
-    ]);
-})->middleware('auth');
+Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+
 
 
 
@@ -39,7 +34,7 @@ Route::get('/billing', function () {
     ]);
 });
 
-Route::get('/login', [Logincontroller::class, 'index'])->name('login');
+Route::get('/login', [Logincontroller::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [Logincontroller::class, 'authenticate']);
 Route::post('/logout', [Logincontroller::class, 'logout']);
 
@@ -77,5 +72,8 @@ Route::put('/sekolah/{slug}', [SekolahController::class,'update']);
 Route::delete('/sekolah/{slug}', [SekolahController::class,'destroy']);
 Route::get('/jadwal/create', [JadwalController::class,'create']);
 Route::post('/jadwal', [JadwalController::class,'store']);
+Route::get('/jadwal/{slug}/edit', [JadwalController::class,'edit']);
+Route::put('/jadwal/{slug}', [JadwalController::class,'update']);
+Route::delete('/jadwal/{slug}', [JadwalController::class,'destroy']);
 
 
