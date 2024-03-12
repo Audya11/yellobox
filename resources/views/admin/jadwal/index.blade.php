@@ -40,10 +40,10 @@
                                     <thead>
                                         <tr>
                                             <th
-                                                class=" align-middle text-centertext-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Nama Instruktur</th>
+                                                class=" align-middle text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Nama </th>
                                             <th
-                                                class="align-middle text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                class="align-middle text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
                                                 Mata Pelajaran</th>
                                             <th
                                                 class=" align-middle text-center text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">

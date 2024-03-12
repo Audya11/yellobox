@@ -141,9 +141,9 @@
                             <div class ='container '>
                                 <form action="/jadwal" method="POST" enctype="multipart/form-data" class="w-75">
                                     @csrf
-                                    <div class="mb-3">
-                                        <select name="user_id" id="">
-                                            <option value="" selected disabled>Pilih Nama
+                                    <div class="mb-3 ">
+                                        <select class="row rounded" name="user_id" id="">
+                                            <option selected disabled>Nama
                                                 instruktur</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -153,16 +153,18 @@
                                     <div class="mb-3">
                                         <label for="matapelajaran" class="form-label">Mata Pelajaran</label>
                                         <input type="text" name='matapelajaran'
-                                            class="form-control border-top-0 shadow border-1"required>
+                                            class="form-control border-top-0 shadow border-1" required
+                                            placeholder="Masukkan Mata Pelajaran">
                                     </div>
                                     <div class="mb-3">
                                         <label for="jammengajar" class="form-label">Jam Mengajar</label>
                                         <input type="text" name='jammengajar'
-                                            class="form-control border-top-0 shadow border-1"required>
+                                            class="form-control border-top-0 shadow border-1" required
+                                            placeholder="Masukkan Jam Mengajar">
                                     </div>
                                     <div class="mb-3">
                                         <select name="sekolah_id" id="">
-                                            <option value="" selected disabled>Pilih Sekolah</option>
+                                            <option value="" selected disabled>Nama Sekolah</option>
                                             @foreach ($sekolahs as $sekolah)
                                                 <option value="{{ $sekolah->id }}">{{ $sekolah->nama }}</option>
                                             @endforeach
@@ -175,7 +177,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <select name="asisten_id" id="">
-                                            <option value="" selected disabled>Pilih Nama asisten</option>
+                                            <option value="" selected disabled>Nama asisten</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                             @endforeach

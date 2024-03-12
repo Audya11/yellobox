@@ -2,23 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\asisten;
-use Illuminate\Http\Request;
-use App\Models\Jadwal;
-use App\Models\Sekolah;
+
 use App\Models\User;
+use App\Models\Jadwal;
+use App\Models\asisten;
+use App\Models\Sekolah;
+use Dompdf\Dompdf;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 
 class JadwalController extends Controller
 {
     public function index (){
-        
+
         $jadwals = Jadwal::with('sekolah', 'user', 'asisten')->get();
         return view('admin.jadwal.index', [
             "title"=> "jadwal",
             "jadwals" => $jadwals
         ]);
     }
+
+    public function cetakJadwal() {
+
+        $jadwal = Jadwal::with('sekolah', 'user', 'asisten')->get();
+        $pdf = new Dompdf();
+        $pdf->loadHtml(view('admin.jadwal.cetak-jadwal', [
+            "title"=> "Jadwal",
+            "jadwals" => $jadwal
+        ]));
+        $pdf->setPaper('A4', 'potrait');
+        $pdf->render();
+        return $pdf->stream('jadwal.pdf',  array("Attachment"=>false));
+    }
+    
+
+   
+
+ 
 
     public function create (){
      

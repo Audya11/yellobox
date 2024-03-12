@@ -144,22 +144,26 @@
                                     <div class="mb-3">
                                         <label for="nama" class="form-label">Nama</label>
                                         <input type="text" name='nama'id='nama'
-                                            class="form-control border-top-0 shadow border-1"required>
+                                            class="form-control border-top-0 shadow border-1" required
+                                            placeholder="Masukkan Nama">
                                     </div>
+
                                     <div class="mb-3">
-                                        <label for="alamat" class="form-label">Alamat </label>
-                                        <textarea name='alamat' id="alamat" class="form-control border-top-0 shadow border-1"required>
-                                        </textarea>
+                                        <label for="alamat" class="form-label">Alamat</label>
+                                        <textarea name="alamat" id="alamat" class="form-control border-top-0 shadow border-1" required
+                                            placeholder="Masukkan Alamat"></textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="notelp" class="form-label">No.Telp</label>
                                         <input type="text" name='notelp'
-                                            class="form-control border-top-0 shadow border-1"required>
+                                            class="form-control border-top-0 shadow border-1"required
+                                            placeholder="Masukkan No.Telphone">
                                     </div>
                                     <div class="mb-3">
                                         <label for="pic" class="form-label">PIC</label>
                                         <input type="text" name='pic'
-                                            class="form-control border-top-0 shadow border-1"required>
+                                            class="form-control border-top-0 shadow border-1"required
+                                            placeholder="Masukkan Nama PIC">
                                     </div>
                                     <button class="btn collor-button text-white shadow" type ="submit"
                                         name="submit">Save</button>

@@ -76,7 +76,7 @@
                         <div class="card-header p-3 pt-2 rounded-circle">
                             <div
                                 class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">school</i>
                             </div>
                             <div class="text-end pt-1">
                                 <p class="text-sm mb-0 text-capitalize">Jumlah Sekolah</p>
@@ -95,6 +95,14 @@
                     </div>
                 </nav>
                 <!-- End Navbar -->
+                <div class="card-header p-0 position-relative mx-3  rounded-circle">
+                    <div class="card ">
+                        <div class="card-tools">
+                            <a href="/jadwal/cetak-jadwal" target= '_blank' class="btn collor-button" style="color: white">
+                                cetak jadwal <i class="bi bi-printer-fill"></i></a>
+                        </div>
+                    </div>
+                </div>
                 <div class="container-fluid py-4">
                     <div class="row">
                         <div class="col-12">
@@ -129,10 +137,10 @@
                                                         class="align-middle text-center text-secondary opacity-7 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                         asisten
                                                     </th>
-                                                    <th
+                                                    {{-- <th
                                                         class="align-middle text-center text-secondary opacity-7 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                         Action
-                                                    </th>
+                                                    </th> --}}
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -172,21 +180,6 @@
                                                                 @endforeach
                                                             </p>
                                                         </td>
-                                                        <td
-                                                            class="align-middle justify-content-center align-items-center d-flex">
-                                                            <a href="/jadwal/{{ $jdl->slug }}/edit"
-                                                                class="text-secondary font-weight-bold text-xs"
-                                                                data-toggle="tooltip" data-original-title="Edit user">
-                                                                <i class="bi bi-pencil-square"></i>
-                                                            </a>
-                                                            <form action="/jadwal/{{ $jdl->slug }}" method="POST">
-                                                                @method('delete')
-                                                                @csrf
-                                                                <button class="border-0 bg-transparent"
-                                                                    onclick="return confirm('Are you sure?')"> <i
-                                                                        class="bi bi-trash3"></i></button>
-                                                            </form>
-                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -196,10 +189,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
                     <footer class="footer py-4  ">
                         <div class="container-fluid">
                             <div class="row align-items-center justify-content-lg-between">

@@ -25,15 +25,6 @@ use App\Http\Controllers\InstrukturController;
 
 Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
 
-
-
-
-Route::get('/billing', function () {
-    return view('admin.billing', [
-        "title"=> "billing"
-    ]);
-});
-
 Route::get('/login', [Logincontroller::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [Logincontroller::class, 'authenticate']);
 Route::post('/logout', [Logincontroller::class, 'logout']);
@@ -42,13 +33,13 @@ Route::get('/register', function () {
     return view('admin.register.index');
 });
 
-Route::get('/profile', function () {
-    return view('admin.profile');
-});
+// Route::get('/profile', function () {
+//     return view('admin.profile');
+// });
 
-Route::get('/notifikasi', function () {
-    return view('admin.notifikasi');
-});
+// Route::get('/notifikasi', function () {
+//     return view('admin.notifikasi');
+// });
 
 Route::get('/instruktur', [InstrukturController::class,'index']);
 Route::get('/sekolah', [SekolahController::class,'index']);
@@ -76,4 +67,6 @@ Route::get('/jadwal/{slug}/edit', [JadwalController::class,'edit']);
 Route::put('/jadwal/{slug}', [JadwalController::class,'update']);
 Route::delete('/jadwal/{slug}', [JadwalController::class,'destroy']);
 
+// report pdf
+Route::get('/jadwal/cetak-jadwal', [JadwalController::class, 'cetakJadwal']);
 
