@@ -30,7 +30,7 @@ class InstrukturController extends Controller
             'name' => 'required|max:255',
             'email' => 'required',
             'keahlian' => 'required',
-            'photo' => 'required|mimetypes:image/jpeg,image/png,image/jpg',
+            // 'photo' => 'required|mimetypes:image/jpeg,image/png,image/jpg',
             'alamat'=> 'required',
             'notelp'=> 'required',
         ]);
@@ -62,7 +62,9 @@ class InstrukturController extends Controller
         $user->notelp = $request->notelp;
 
         if($request->hasFile('photo')){
-            Storage::delete($user->photo);
+            if ($user->photo){
+                Storage::delete($user->photo);
+            }
             $user->photo = $request->file('photo')->store('instruktur');
         }
 

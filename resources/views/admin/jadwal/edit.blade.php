@@ -134,36 +134,62 @@
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="collor-button shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Tambah data Sekolah</h6>
+                                <h6 class="text-white text-capitalize ps-3">Tambah data Jadwal</h6>
                             </div>
                         </div>
                         <div class="card my-4">
                             <div class ='container'>
-                                <form action="/sekolah" method="POST" class="w-75">
+                                <form action="/jadwal/{{ $jadwal->slug }}" method="POST" class="w-75">
                                     @csrf
+                                    @method('PUT')
                                     <div class="mb-3">
-                                        <label for="nama" class="form-label">Nama</label>
-                                        <input type="text" name='nama'id='nama'
-                                            class="form-control border-top-0 shadow border-1" required
-                                            placeholder="Masukkan Nama">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="alamat" class="form-label">Alamat</label>
-                                        <textarea name="alamat" id="alamat" class="form-control border-top-0 shadow border-1" required
-                                            placeholder="Masukkan Alamat"></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="notelp" class="form-label">No.Telp</label>
-                                        <input type="text" name='notelp'
-                                            class="form-control border-top-0 shadow border-1"required
-                                            placeholder="Masukkan No.Telphone">
+                                        <select name="user_id" id="">
+                                            @foreach ($jadwal->user as $user)
+                                                <option value="{{ $user->id }}" selected disabled>{{ $user->name }}
+                                                </option>
+                                            @endforeach
+                                            @foreach ($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="pic" class="form-label">PIC</label>
-                                        <input type="text" name='pic'
-                                            class="form-control border-top-0 shadow border-1"required
-                                            placeholder="Masukkan Nama PIC">
+                                        <label for="matapelajaran" class="form-label">Mata Pelajaran</label>
+                                        <input type="text" name='matapelajaran' value="{{ $jadwal->matapelajaran }}"
+                                            class="form-control border-top-0 shadow border-1"required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="jammengajar" class="form-label">Jam Mengajar</label>
+                                        <input type="text" name='jammengajar' value="{{ $jadwal->jammengajar }}"
+                                            class="form-control border-top-0 shadow border-1"required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <select name="sekolah_id" id="">
+                                            @foreach ($jadwal->sekolah as $sekolah)
+                                                <option value="{{ $sekolah->id }}" selected disabled>
+                                                    {{ $sekolah->nama }}"></option>
+                                            @endforeach
+                                            @foreach ($sekolahs as $sekolah)
+                                                <option value="{{ $sekolah->id }}">{{ $sekolah->nama }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="tanggal" class="form-label">Tanggal</label>
+                                        <input type="date" name='tanggal' value="{{ $jadwal->tanggal }}"
+                                            class="form-control border-top-0 shadow border-1"required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <select name="asisten_id" id="">
+                                            @foreach ($jadwal->asisten as $asisten)
+                                                <option value="{{ $user->id }}" selected disabled>
+                                                    {{ $user->name }}">
+                                                </option>
+                                            @endforeach
+                                            @foreach ($users as $user)
+                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <button class="btn collor-button text-white shadow" type ="submit"
                                         name="submit">Save</button>

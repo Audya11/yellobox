@@ -13,7 +13,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'admin' ? 'active collor-button' : '' }} " href="/admin">
+                <a class="nav-link {{ $title === 'Dashboard' ? 'active collor-button' : '' }} " href="/">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">dashboard</i>
                     </div>
@@ -80,20 +80,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white " href="/login">
+                <form class="nav-link text-white" action="/logout" method="POST">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">login</i>
+                        @csrf
+                        <button class="border-0 bg-transparent text-white" onclick="return confirm('Are you sure?')"> <i
+                                class="bi bi-box-arrow-in-left"> </i>Logout</button>
                     </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white " href="/register">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">assignment</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign Up</span>
-                </a>
+                </form>
             </li>
         </ul>
     </div>
