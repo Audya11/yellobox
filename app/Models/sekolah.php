@@ -16,6 +16,9 @@ class sekolah extends Model
     // protected $with =['jadwal'];
 
 
+    public function absensi(){
+        return $this->hasMany(Absensi::class);
+    }
     public function jadwal (){
         return $this->belongsToMany(Jadwal::class, 'jadwal_sekolah');
     }

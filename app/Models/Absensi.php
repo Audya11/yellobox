@@ -14,13 +14,10 @@ class Absensi extends Model
 
 
     protected $guarded =['id'];
-    protected $with =['sekolah','user'];
+    protected $with =['sekolah'];
 
     public function sekolah(){
         return $this->belongsTo(sekolah::class);
-    }
-    public function user(){
-        return $this->hasOne(user::class, 'user_id');
     }
 
     public function getSlugOptions() : SlugOptions

@@ -165,48 +165,48 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                         @foreach ($absensis as $absensi)
                                             <tr>
                                                 <td><input type="checkbox"></td>
-                                                <td>1</td>
+                                                <td>{{ $loop->iteration }}</td>
                                                 <td>
                                                     <div class="d-flex px-2 py-1">
 
                                                         <div class="d-flex flex-column justify-content-center">
-                                                            <h6 class="mb-0 text-sm">{{ $absensi->user->name }}</h6>
-                                                            <p class="text-xs text-secondary mb-0">john@creative-tim.com
+                                                            {{-- <h6 class="mb-0 text-sm">{{ $absensi->user->name }}</h6> --}}
+                                                            <p class="text-xs text-secondary mb-0">{{ $absensi->nama }}
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <p class="text-xs font-weight-bold mb-0">Manager</p>
-                                                    <p class="text-xs text-secondary mb-0">Organization</p>
+                                                    <p class="text-xs font-weight-bold mb-0">{{ $absensi->kelas }}</p>
                                                 </td>
                                                 <td class="align-middle text-center">
                                                     {{-- <span class="text-secondary text-xs font-weight-bold">23/04/18</span> --}}
-                                                    28-07-2002
+                                                    {{ $absensi->tanggal }}
                                                 </td>
                                                 <td>
-                                                    <select name="" id=""
-                                                        class="badge badge bg-gradient-success">
-                                                        <option value="hadir">Hadir</option>
-                                                        <option value="izin">Izin</option>
-                                                        <option value="sakit">Sakit</option>
-                                                        <option value="sakit">Alpha</option>
-                                                    </select>
+                                                    <div class="badge badge bg-gradient-success align-middle">
+                                                        {{ $absensi->status }}
+                                                    </div>
                                                 </td>
 
 
                                                 <td class="align-middle">
-                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit user">
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#editAbsenModal{{ $absensi->slug }}">
                                                         Edit
-                                                    </a>
+                                                        <button type="button" class="btn btn-primary"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#hapusAbsenModal{{ $absensi->slug }}">
+                                                            Hapus
+                                                        </button>
+
                                                 </td>
                                             </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
@@ -214,4 +214,49 @@
                     </div>
                 </div>
             </div>
+
+
+            @foreach ($absensis as $absensi)
+                <div id="editAbsenModal{{ $absensi->slug }}" aria-labelledby="editAbsenModal{{ $absensi->slug }}"
+                    class="modal fade" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="/absensi/{{ $absensi->slug }}" method="POST">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Edit Absensi</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Tanggal:</label>
+                                        <input type="date" class="form-control" name="tanggal"
+                                            value="{{ $absensi->tanggal }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Status:</label>
+                                        <select name="status" id="" class="form-select">
+                                            @if ($absensi->status)
+                                                <option value="{{ $absensi->status }}" disabled selected>
+                                                    {{ $absensi->status }}</option>
+                                            @endif
+                                            <option value="hadir">Hadir</option>
+                                            <option value="sakit">Sakit</option>
+                                            <option value="izin">Izin</option>
+                                            <option value="Alfa">Alfa</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         @endsection

@@ -64,6 +64,7 @@ Route::get('/absen', [AbsensiController::class,'index']
 
 Route::get('/absensi/create', [AbsensiController::class,'create']);
 Route::post('/absensi', [AbsensiController::class,'store']);
+Route::put('/absensi/{slug}', [AbsensiController::class, 'update']);
 
 Route::get('/instruktur/create', [InstrukturController::class,'create']);
 Route::post('/instruktur', [InstrukturController::class,'store']);

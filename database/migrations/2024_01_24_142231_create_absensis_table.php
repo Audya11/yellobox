@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('absensis', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-          
-            $table->foreignId("user_id");
+            $table->foreignId("sekolah_id")->nullable();
+            $table->string("nama");
             $table->string("tanggal");
             $table->string("slug")->unique();
             $table->string("kelas");
-            $table->enum('status',['Hadir', 'Izin', 'Sakit', 'Alpha']);
+            $table->string('status');
         });
     }
 

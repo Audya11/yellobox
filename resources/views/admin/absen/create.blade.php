@@ -142,13 +142,9 @@
                                 <form action="/absensi" method="POST" class="w-75">
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="name" class="form-label">Name</label>
-                                        <select name="user_id" id="name" class="form-select">
-                                            <option value="" selected disabled>Pilih Nama Siswa</option>
-                                            @foreach ($users as $user)
-                                                <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label for="nama" class="form-label">Nama</label>
+                                        <input name='nama' id="nama"
+                                            class="form-control border-top-0 shadow border-1"required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="kelas" class="form-label">Kelas </label>

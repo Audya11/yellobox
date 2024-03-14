@@ -27,8 +27,6 @@ class User extends Authenticatable
     ];
     protected $guarded =['id'];
 
-    protected $with = ['absensi'];
-
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -53,9 +51,7 @@ class User extends Authenticatable
     public function jadwal(){
         return $this->belongsToMany(Jadwal::class, 'jadwal_user');
     }
-    public function absensi(){
-    return $this->belongsTo(Absensi::class, 'absensi_id');
-    }
+   
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
