@@ -142,9 +142,8 @@
                                 <form action="/jadwal" method="POST" enctype="multipart/form-data" class="w-75">
                                     @csrf
                                     <div class="mb-3 ">
-                                        <select class="row rounded" name="user_id" id="">
-                                            <option selected disabled>Nama
-                                                instruktur</option>
+                                        <select name="user_id" id="">
+                                            <option selected disabled>Nama Instruktur</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                                             @endforeach

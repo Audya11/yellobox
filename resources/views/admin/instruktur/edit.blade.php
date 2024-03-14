@@ -134,7 +134,7 @@
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="collor-button shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Tambah data Instruktur</h6>
+                                <h6 class="text-white text-capitalize ps-3">Edit data Instruktur</h6>
                             </div>
                         </div>
                         <div class="card my-4">
@@ -150,9 +150,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label for="alamat" class="form-label">Alamat </label>
-                                        <textarea name='alamat' id="alamat" class="form-control border-top-0 shadow border-1"required>
-                                            {{ $user->alamat }}
-                                        </textarea>
+                                        <textarea name='alamat' id="alamat" class="form-control border-top-0 shadow border-1"required>{{ $user->alamat }}</textarea>
                                     </div>
                                     <div class="mb-3">
                                         <label for="keahlian" class="form-label">Keahlian</label>
