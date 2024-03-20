@@ -8,6 +8,8 @@ use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\SekolahController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InstrukturController;
+use App\Http\Controllers\LaporanAbsensiController;
+use App\Http\Controllers\data_pesertaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,12 +47,18 @@ Route::get('/instruktur', [InstrukturController::class,'index']);
 Route::get('/sekolah', [SekolahController::class,'index']);
 Route::get('/jadwal', [JadwalController::class, 'index']);
 
-Route::get('/absen', [AbsensiController::class,'index']
+Route::get('/data_peserta', [data_pesertaController::class,'index']
 );
 
-Route::get('/absensi/create', [AbsensiController::class,'create']);
-Route::post('/absensi', [AbsensiController::class,'store']);
-Route::put('/absensi/{slug}', [AbsensiController::class, 'update']);
+Route::get('/presensi/{slug}', [AbsensiController::class,'index']
+);
+
+Route::get('/presensi/{slug}/create', [AbsensiController::class,'create']);
+Route::post('/presensi/{slug}', [AbsensiController::class,'store']);
+Route::put('/presensi/{slug}', [AbsensiController::class, 'update']);
+Route::delete('/presensi/{slug}', [AbsensiController::class,'destroy']);
+
+Route::get('/laporan-presensi/{slug}', [LaporanAbsensiController::class, 'index']);
 
 Route::get('/instruktur/create', [InstrukturController::class,'create']);
 Route::post('/instruktur', [InstrukturController::class,'store']);

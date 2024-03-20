@@ -36,10 +36,9 @@
 
         </div>
 
-
         <script src="/js/material-dashboard.js"></script>
         <script src="/js/material-dashboard.min.js"></script>
-        <script src="/js/core/bootstrap.min.js"></script>
+        {{-- <script src="/js/core/bootstrap.min.js"></script> --}}
         <script src="/js/core/popper.min.js"></script>
         <script src="/js/plugins/bootstrap-notify.js"></script>
         <script src="/js/plugins/Chart.extension.js"></script>
@@ -61,6 +60,13 @@
         <script async defer src="https://buttons.github.io/buttons.js"></script>
         <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
         <script src="./assets/js/material-dashboard.min.js?v=3.0.0"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+            integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+        </script>
     </body>
 
     </html>

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\App;
 
 use App\Models\Sekolah;
+use App\Models\Absensi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class SekolahController extends Controller
 {
@@ -27,11 +30,19 @@ class SekolahController extends Controller
     
         $validateData = $request->validate([
             'nama' => 'required|max:255',
+            'logo' => 'required|mimetypes:image/png,image/jpg,image/jpeg',
             'alamat' => 'required',
             'notelp'=> 'required',
             'pic'=> 'required',
         ]);
+
+        if($request->hasFile('logo')){
+            $validateData['logo'] = $request->file('logo')->store('logo_sekolah');
+        }
+    
+
         Sekolah::create($validateData);
+       
         return redirect('/sekolah')->with('success', 'Sekolah Berhasil Di tambahkan');
     }
 
@@ -65,6 +76,8 @@ class SekolahController extends Controller
     public function destroy ($slug){
        // Find the school by its unique slug
     $sekolah = Sekolah::where('slug', $slug)->first();
+
+    Storage::delete($sekolah->logo);
 
     // Delete the school
     $sekolah->delete();

@@ -130,9 +130,7 @@
         <!-- End Navbar -->
         <div class="container-fluid py-4">
             <div class="row">
-                <a href="/presensi/{{ $sekolah->slug }}/create" class="btn collor-button col-2"
-                    style="color: white">tambah
-                    data <i class="fas fa-plus-square"></i></a>
+
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
@@ -146,14 +144,14 @@
                         </div>
                         <div class="card-body px-0 pb-2">
                             <div class="table-responsive p-0">
-                                @if ($sekolah->absensi->isEmpty())
+                                @if ($sekolah->laporan->isEmpty())
                                     <p class="text-center">Tidak Ada Data Presensi</p>
                                 @else
                                     <table class="table align-items-center mb-0">
                                         <thead>
                                             <tr>
-                                                {{-- <th></th> --}}
-                                                {{-- <th>No. </th> --}}
+                                                {{-- <th></th>
+                                                <th>No. </th> --}}
                                                 <th
                                                     class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                     Nama </th>
@@ -166,53 +164,56 @@
                                                 <th>Status</th>
 
 
-                                                <th class="text-secondary opacity-7">Action</th>
+                                                {{-- <th class="text-secondary opacity-7">Action</th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($absensis as $absensi)
-                                                @if ($absensi->sekolah_id === $sekolah->id)
+                                            @foreach ($laporan_absensis as $laporan)
+                                                @if ($laporan->sekolah_id === $sekolah->id)
                                                     <tr>
-                                                        {{-- <td><input type="checkbox"></td> --}}
-                                                        {{-- <td>
-                                                            {{ $loop->iteration }}
-                                                        </td> --}}
+                                                        {{-- <td><input type="checkbox"></td>
+                                                        <td>{{ $loop->iteration }} --}}
+
+                                                        </td>
                                                         <td>
                                                             <div class="d-flex px-2 py-1">
+
                                                                 <div class="d-flex flex-column justify-content-center">
+                                                                    {{-- <h6 class="mb-0 text-sm">{{ $laporan->user }}</h6> --}}
                                                                     <p class="text-xs text-secondary mb-0">
-                                                                        {{ $absensi->nama }}
+                                                                        {{ $laporan->nama }}
                                                                     </p>
                                                                 </div>
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <p class="text-xs font-weight-bold mb-0">
-                                                                {{ $absensi->kelas }}
+                                                            <p class="text-xs font-weight-bold mb-0">{{ $laporan->kelas }}
                                                             </p>
                                                         </td>
                                                         <td class="align-middle text-center">
-                                                            {{ $absensi->tanggal }}
+                                                            {{-- <span class="text-secondary text-xs font-weight-bold">23/04/18</span> --}}
+                                                            {{ $laporan->tanggal }}
                                                         </td>
                                                         <td>
                                                             <div class="badge badge bg-gradient-success align-middle">
-                                                                {{ $absensi->status }}
+                                                                {{ $laporan->status }}
                                                             </div>
                                                         </td>
-                                                        <td class="align-middle d-flex ">
-                                                            <button type="button" class="btn btn-primary"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#editAbsenModal{{ $absensi->slug }}">
-                                                                Edit
-                                                            </button>
-                                                            <form action="/presensi/{{ $absensi->slug }}" method="POST">
-                                                                @method('delete')
-                                                                @csrf
-                                                                <button class="btn btn-primary"
-                                                                    onclick="return confirm('Anda yakin ingin menghapus ?')">
-                                                                    <i></i>Delete</button>
-                                                            </form>
-                                                        </td>
+
+
+                                                        {{-- <td class="align-middle d-flex ">
+                                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        data-bs-target="#editAbsenModal{{ $laporan->slug }}">
+                                                        Edit
+                                                    </button>
+                                                    <form action="/laporan-absensi/{{ $laporan->slug }}" method="POST">
+                                                        @method('delete')
+                                                        @csrf
+                                                        <button class="btn btn-primary"
+                                                            onclick="return confirm('Anda yakin ingin menghapus ?')">
+                                                            <i></i>delet</button>
+                                                    </form>
+                                                </td> --}}
                                                     </tr>
                                                 @endif
                                             @endforeach
@@ -224,51 +225,6 @@
                     </div>
                 </div>
             </div>
-
-
-            @foreach ($absensis as $absensi)
-                <div id="editAbsenModal{{ $absensi->slug }}" aria-labelledby="editAbsenModal{{ $absensi->slug }}"
-                    class="modal fade" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <form action="/presensi/{{ $absensi->slug }}" method="POST">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Edit Absensi</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Tanggal:</label>
-                                        <input type="date" class="form-control" name="tanggal"
-                                            value="{{ $absensi->tanggal }}">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="" class="form-label">Status:</label>
-                                        <select name="status" id="" class="form-select">
-                                            @if ($absensi->status)
-                                                <option value="{{ $absensi->status }}" disabled selected>
-                                                    {{ $absensi->status }}</option>
-                                            @endif
-                                            <option value="hadir">Hadir</option>
-                                            <option value="sakit">Sakit</option>
-                                            <option value="izin">Izin</option>
-                                            <option value="Alfa">Alfa</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
         </div>
     </main>
 @endsection

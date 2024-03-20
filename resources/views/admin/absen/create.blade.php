@@ -139,9 +139,11 @@
                         </div>
                         <div class="card my-4">
                             <div class ='container'>
-                                <form action="/absensi" method="POST" class="w-75">
+                                <form action="/presensi/{{ $sekolah->nama }}" method="POST" class="w-75">
                                     @csrf
+                                    <input type="hidden" name="sekolah_id" value="{{ $sekolah->id }}">
                                     <div class="mb-3">
+
                                         <label for="nama" class="form-label">Nama</label>
                                         <input name='nama' id="nama"
                                             class="form-control border-top-0 shadow border-1"required>

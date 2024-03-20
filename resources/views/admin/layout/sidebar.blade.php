@@ -45,13 +45,44 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ $title === 'absen' ? 'active collor-button' : '' }} " href="/absen">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Presensi Peserta</span>
-                </a>
+                <div class="dropdown-center">
+                    <a class="nav-link {{ Request::is('/presensi*') ? 'active' : '' }}" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">checklist_rtl</i>
+                        </div>
+                        Presensi Peserta
+                    </a>
+                    <ul class="dropdown-menu" style="background-color: #0B60B0">
+                        @foreach ($sekolahs as $sekolah)
+                            <li><a class="dropdown-item text-white"
+                                    href="/presensi/{{ $sekolah->slug }}">{{ $sekolah->nama }}</a>
+                            </li>
+                        @endforeach
+
+                    </ul>
+                </div>
             </li>
+            <li class="nav-item">
+                <div class="dropdown-center">
+                    <a class="nav-link {{ Request::is('/laporan-absensi*') ? 'active' : '' }}" href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">summarize</i>
+                        </div>
+                        Laporan Absensi
+                    </a>
+                    <ul class="dropdown-menu" style="background-color: #0B60B0">
+                        @foreach ($sekolahs as $sekolah)
+                            <li><a class="dropdown-item text-white"
+                                    href="/laporan-presensi/{{ $sekolah->slug }}">{{ $sekolah->nama }}</a>
+                            </li>
+                        @endforeach
+
+                    </ul>
+                </div>
+            </li>
+
             {{-- <li class="nav-item">
                 <a class="nav-link {{ $title === 'billing' ? 'active collor-button' : '' }} " href="billing">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">

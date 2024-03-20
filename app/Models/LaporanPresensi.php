@@ -7,29 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class sekolah extends Model
+class LaporanPresensi extends Model
 {
     use HasFactory, HasSlug;
 
-
-    protected $guarded =['id'];
-    // protected $with =['jadwal'];
-
-
-    public function absensi(){
-        return $this->hasMany(Absensi::class);
-    }
-    public function jadwal (){
-        return $this->belongsToMany(Jadwal::class, 'jadwal_sekolah');
-    }
-    public function laporan(){
-        return $this->hasMany(LaporanPresensi::class);
-    }
+    protected $guarded = ['id'];
 
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('nama')
+            ->generateSlugsFrom('tanggal')
             ->saveSlugsTo('slug');
     }
 
@@ -37,5 +24,7 @@ class sekolah extends Model
         return 'slug';
     }
 
-
+    public function sekolah(){
+        return $this->belongsTo(sekolah::class, 'sekolah_id');
+    }
 }

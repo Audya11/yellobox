@@ -139,13 +139,18 @@
                         </div>
                         <div class="card my-4">
                             <div class ='container'>
-                                <form action="/sekolah" method="POST" class="w-75">
+                                <form action="/sekolah" method="POST" class="w-75" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="nama" class="form-label">Nama</label>
                                         <input type="text" name='nama'id='nama'
                                             class="form-control border-top-0 shadow border-1" required
                                             placeholder="Masukkan Nama">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="logo" class="form-label">Logo</label>
+                                        <input type="file" name='logo'id='logo'
+                                            class="form-control border-top-0 shadow border-1" required>
                                     </div>
 
                                     <div class="mb-3">
