@@ -28,49 +28,52 @@
                     <span class="nav-link-text ms-1">List Jadwal</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link {{ $title === 'Instruktur' ? 'active collor-button' : '' }} " href="/instruktur">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Daftar Instruktur</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ $title === 'Sekolah' ? 'active collor-button' : '' }} " href="/sekolah">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Daftar Sekolah</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ $title === 'absen' ? 'active collor-button' : '' }} " href="/absen">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Presensi Peserta</span>
-                </a>
-            </li>
-            {{-- <li class="nav-item">
-                <a class="nav-link {{ $title === 'billing' ? 'active collor-button' : '' }} " href="billing">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">receipt_long</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Billing</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link  " href="/notifikasi">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">notifications</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Notifications</span>
-                </a>
-            </li> --}}
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
-            </li>
+            @can('admin')
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Instruktur' ? 'active collor-button' : '' }} " href="/instruktur">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Daftar Instruktur</span>
+                    </a>
+                </li>
+            @endcan
+            @can('admin')
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Sekolah' ? 'active collor-button' : '' }} " href="/sekolah">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Daftar Sekolah</span>
+                    </a>
+                </li>
+            @endcan
+            @can('admin')
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'absen' ? 'active collor-button' : '' }} " href="/absen">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Presensi Peserta</span>
+                    </a>
+                </li>
+            @endcan
+            @can('admin')
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'management' ? 'active collor-button' : '' }} "
+                        href="/user-management">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">User Management</span>
+                    </a>
+                </li>
+            @endcan
+            @can('admin')
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+                </li>
+            @endcan
             <li class="nav-item">
                 <a class="nav-link text-white " href="/profile">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">

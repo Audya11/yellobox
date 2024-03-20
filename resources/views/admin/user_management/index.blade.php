@@ -13,27 +13,24 @@
                     </ol>
                     <h6 class="font-weight-bolder mb-0">Tables</h6>
                 </nav>
-
             </div>
         </nav>
         <!-- End Navbar -->
-        @can('admin')
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 rounded-circle">
-                <div class="card my-4 ">
-                    <div class="card-tools">
-                        <a href="/jadwal/create" class="btn collor-button" style="color: white">tambah data <i
-                                class="fas fa-plus-square"></i></a>
-                    </div>
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 rounded-circle">
+            <div class="card my-4 ">
+                <div class="card-tools">
+                    <a href="/user-management/create" class="btn collor-button" style="color: white">tambah data <i
+                            class="fas fa-plus-square"></i></a>
                 </div>
             </div>
-        @endcan
+        </div>
         <div class="container-fluid py-4">
             <div class="row">
                 <div class="col-12">
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                            <div class="collor-button shadow-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Jadwal Instruktur</h6>
+                            <div class="collor-button shadow-primary border-radius-lg pt-4 pb-3">
+                                <h6 class="text-white text-capitalize ps-3">Daftar Instruktur</h6>
                             </div>
                         </div>
                         <div class="card-body px-0 pb-2">
@@ -42,72 +39,50 @@
                                     <thead>
                                         <tr>
                                             <th
-                                                class=" align-middle text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Nama </th>
+                                                class=" text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Nama</th>
                                             <th
-                                                class="align-middle text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
-                                                Mata Pelajaran</th>
+                                                class=" text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                Email</th>
                                             <th
-                                                class=" align-middle text-center text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Tempat Mengajar</th>
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                No.Telp</th>
                                             <th
-                                                class="align-middle text-center text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Jam Mengajar</th>
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Role</th>
                                             <th
-                                                class="align-middle text-center text-secondary opacity-7 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Tanggal
-                                            </th>
-                                            <th
-                                                class="align-middle text-center text-secondary opacity-7 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                asisten
-                                            </th>
-                                            <th
-                                                class="align-middle text-center text-secondary opacity-7 text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Action
-                                            </th>
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                action</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($jadwals as $jadwal)
+                                        @foreach ($managements as $management)
                                             <tr>
                                                 <td class="align-middle text-center">
-                                                    <p class="text-xs text-secondary mb-0">
-                                                        @foreach ($jadwal->user as $user)
-                                                            {{ $user->name }}
-                                                        @endforeach
-                                                    </p>
+                                                    <p class="text-xs text-secondary font-weight-bold mb-0">
+                                                        {{ $management->name }}</p>
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    <p class="text-xs text-secondary mb-0">{{ $jadwal->matapelajaran }}</p>
+                                                    <p class="text-xs text-secondary font-weight-bold mb-0">
+                                                        {{ $management->email }}</p>
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    <p class="text-xs text-secondary mb-0">
-                                                        @foreach ($jadwal->sekolah as $sekolah)
-                                                            {{ $sekolah->nama }}
-                                                        @endforeach
-                                                    </p>
-                                                </td>
-
-                                                <td class="align-middle text-center">
-                                                    <p class="text-xs text-secondary mb-0">{{ $jadwal->jammengajar }}</p>
+                                                    <p class="text-xs text-secondary font-weight-bold mb-0">
+                                                        {{ $management->notelp }}</p>
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    <p class="text-xs text-secondary mb-0">{{ $jadwal->tanggal }}</p>
-                                                </td>
-                                                <td class="align-middle text-center">
-                                                    <p class="text-xs text-secondary mb-0 ">
-                                                        @foreach ($jadwal->asisten as $asisten)
-                                                            {{ $asisten->name }}
-                                                        @endforeach
+                                                    <p class="text-xs text-secondary font-weight-bold mb-0">
+                                                        {{ $management->is_admin ? 'Admin' : 'Instruktur' }}
                                                     </p>
                                                 </td>
                                                 <td class="align-middle justify-content-center align-items-center d-flex">
-                                                    <a href="/jadwal/{{ $jadwal->slug }}/edit"
+                                                    <a href="/instruktur/{{ $management->slug }}/edit"
                                                         class="text-secondary font-weight-bold text-xs"
                                                         data-toggle="tooltip" data-original-title="Edit user">
                                                         <i class="bi bi-pencil-square"></i>
                                                     </a>
-                                                    <form action="/jadwal/{{ $jadwal->slug }}" method="POST">
+                                                    <form action="/instruktur/{{ $management->slug }}" method="POST">
                                                         @method('delete')
                                                         @csrf
                                                         <button class="border-0 bg-transparent"
@@ -117,6 +92,8 @@
                                                 </td>
                                             </tr>
                                         @endforeach
+
+
                                     </tbody>
                                 </table>
                             </div>
@@ -129,7 +106,7 @@
                     <div class="row align-items-center justify-content-lg-between">
                         <div class="col-lg-6 mb-lg-0 mb-4">
                             <div class="copyright text-center text-sm text-muted text-lg-start">
-
+                                ©
                                 <script>
                                     document.write(new Date().getFullYear())
                                 </script>,
@@ -139,8 +116,7 @@
                                 for a better web.
                             </div>
                         </div>
-                    </div>
-                </div>
+
             </footer>
         </div>
     </main>
