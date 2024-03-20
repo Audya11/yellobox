@@ -134,36 +134,44 @@
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="collor-button shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">Edit data Instruktur</h6>
+                                <h6 class="text-white text-capitalize ps-3">Tambah data Sekolah</h6>
                             </div>
                         </div>
                         <div class="card my-4">
                             <div class ='container'>
-                                <form action="/sekolah/{{ $sekolah->slug }}" method="POST" class="w-75">
+                                <form action="/user-management " method="POST" class="w-75">
                                     @csrf
-                                    @method('PUT')
                                     <div class="mb-3">
-                                        <label for="name" class="form-label">Nama</label>
-                                        <input type="text" name='nama'id='name' value="{{ $sekolah->nama }}"
-                                            class="form-control border-top-0 shadow border-1"required>
+                                        <label for="nama" class="form-label">Nama</label>
+                                        <input type="text" name='name'id='nama'
+                                            class="form-control border-top-0 shadow border-1" required
+                                            placeholder="Masukkan Nama">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="alamat" class="form-label">Alamat </label>
-                                        <textarea name='alamat' id="alamat" class="form-control border-top-0 shadow border-1"required>{{ $sekolah->alamat }}</textarea>
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" name='email'
+                                            class="form-control border-top-0 shadow border-1"required
+                                            placeholder="Masukkan Email">
                                     </div>
                                     <div class="mb-3">
                                         <label for="notelp" class="form-label">No.Telp</label>
                                         <input type="text" name='notelp'
                                             class="form-control border-top-0 shadow border-1"required
-                                            value="{{ $sekolah->notelp }}">
+                                            placeholder="Masukkan No.Telphone">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="pic" class="form-label">PICC</label>
-                                        <input type="text" name='pic' value="{{ $sekolah->pic }}"
-                                            class="form-control border-top-0 shadow border-1"required>
+                                        <label for="is_admin" class="form-label">Role</label>
+                                        <select name="is_admin" id="" class="form-select w-10">
+                                            <option value=true>Admin</option>
+                                            <option value=false>Instruktur</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label">Password</label>
+                                        <input type="password" name='password' class="form-control">
                                     </div>
                                     <button class="btn collor-button text-white shadow" type ="submit"
-                                        name="submit">Update</button>
+                                        name="submit">Save</button>
                                 </form>
                             </div>
                         </div>

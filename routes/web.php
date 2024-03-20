@@ -10,6 +10,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InstrukturController;
 use App\Http\Controllers\LaporanAbsensiController;
 use App\Http\Controllers\data_pesertaController;
+use App\Http\Controllers\ManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ use App\Http\Controllers\data_pesertaController;
 
 // Route::get('/',[DashboardController::class, 'index']);
 
-Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/', [DashboardController::class, 'index'])->middleware('admin');
 
 Route::get('/login', [Logincontroller::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [Logincontroller::class, 'authenticate']);
@@ -75,6 +76,9 @@ Route::post('/jadwal', [JadwalController::class,'store']);
 Route::get('/jadwal/{slug}/edit', [JadwalController::class,'edit']);
 Route::put('/jadwal/{slug}', [JadwalController::class,'update']);
 Route::delete('/jadwal/{slug}', [JadwalController::class,'destroy']);
+Route::get('/user-management', [ManagementController::class, 'index']);
+Route::get('/user-management/create', [ManagementController::class, 'create']);
+Route::post('/user-management', [ManagementController::class, 'store']);
 
 // report pdf
 Route::get('/jadwal/cetak-jadwal', [JadwalController::class, 'cetakJadwal']);

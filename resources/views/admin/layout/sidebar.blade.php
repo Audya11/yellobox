@@ -102,6 +102,52 @@
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
             </li>
+            @can('admin')
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Instruktur' ? 'active collor-button' : '' }} " href="/instruktur">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Daftar Instruktur</span>
+                    </a>
+                </li>
+            @endcan
+            @can('admin')
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'Sekolah' ? 'active collor-button' : '' }} " href="/sekolah">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Daftar Sekolah</span>
+                    </a>
+                </li>
+            @endcan
+            @can('admin')
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'absen' ? 'active collor-button' : '' }} " href="/absen">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">Presensi Peserta</span>
+                    </a>
+                </li>
+            @endcan
+            @can('admin')
+                <li class="nav-item">
+                    <a class="nav-link {{ $title === 'management' ? 'active collor-button' : '' }} "
+                        href="/user-management">
+                        <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                            <i class="material-icons opacity-10">table_view</i>
+                        </div>
+                        <span class="nav-link-text ms-1">User Management</span>
+                    </a>
+                </li>
+            @endcan
+            @can('admin')
+                <li class="nav-item mt-3">
+                    <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+                </li>
+            @endcan
             <li class="nav-item">
                 <a class="nav-link text-white " href="/profile">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -114,8 +160,8 @@
                 <form class="nav-link text-white" action="/logout" method="POST">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         @csrf
-                        <button class="border-0 bg-transparent text-white" onclick="return confirm('Are you sure?')"> <i
-                                class="bi bi-box-arrow-in-left"> </i>Logout</button>
+                        <button class="border-0 bg-transparent text-white" onclick="return confirm('Are you sure?')">
+                            <i class="bi bi-box-arrow-in-left"> </i>Logout</button>
                     </div>
                 </form>
             </li>
